@@ -91,6 +91,22 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+### `artifacts/basis-mcp` (`@basis-protocol/mcp-server`)
+
+MCP (Model Context Protocol) server for Basis Protocol — decision integrity infrastructure for on-chain finance.
+
+- **Entry:** `src/index.ts` — detects `--http` flag to choose transport
+- **Config:** `src/config.ts` — types, grade ordering, thresholds
+- **API client:** `src/api.ts` — fetches Basis Protocol API at `https://basis-demo.replit.app`
+- **Tools:** `src/tools.ts` — 8 registered MCP tools
+- **8 Tools:** `get_stablecoin_scores`, `get_stablecoin_detail`, `get_wallet_risk`, `get_wallet_holdings`, `get_riskiest_wallets`, `get_scoring_backlog`, `check_transaction_risk`, `get_methodology`
+- **Transports:** stdio (Claude Desktop, Cursor) and Streamable HTTP (cloud agents)
+- **Build:** `pnpm --filter @basis-protocol/mcp-server run build` → compiles to `build/`
+- **Run stdio:** `node artifacts/basis-mcp/build/index.js`
+- **Run HTTP:** `PORT=3000 node artifacts/basis-mcp/build/index.js --http` → serves at `/mcp`
+- **Registry:** `.mcp/server.json` for MCP Registry listing
+- No database access, no internal imports — HTTPS fetch only
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.
