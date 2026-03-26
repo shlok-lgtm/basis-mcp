@@ -2,19 +2,19 @@
 
 The MCP registry provides MCP clients with a list of MCP servers, like an app store for MCP servers.
 
-📖 **[Full documentation](./docs)**
+[**📤 Publish my MCP server**](docs/modelcontextprotocol-io/quickstart.mdx) | [**⚡️ Live API docs**](https://registry.modelcontextprotocol.io/docs) | [**👀 Ecosystem vision**](docs/design/ecosystem-vision.md) | 📖 **[Full documentation](./docs)**
 
 ## Development Status
 
-> [!WARNING]  
-> The registry is under [active development](#development-status). The registry API spec is unstable and the official MCP registry database may be wiped at any time.
+**2025-10-24 update**: The Registry API has entered an **API freeze (v0.1)** 🎉. For the next month or more, the API will remain stable with no breaking changes, allowing integrators to confidently implement support. This freeze applies to v0.1 while development continues on v0. We'll use this period to validate the API in real-world integrations and gather feedback to shape v1 for general availability. Thank you to everyone for your contributions and patience—your involvement has been key to getting us here!
 
-**2025-09-04 update**: We're targeting a 'preview' go-live on 8th September. This may still be unstable and not provide durability guarantees, but is a step towards being more solidified. A general availability (GA) release will follow later.
+**2025-09-08 update**: The registry has launched in preview 🎉 ([announcement blog post](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/)). While the system is now more stable, this is still a preview release and breaking changes or data resets may occur. A general availability (GA) release will follow later. We'd love your feedback in [GitHub discussions](https://github.com/modelcontextprotocol/registry/discussions/new?category=ideas) or in the [#registry-dev Discord](https://discord.com/channels/1358869848138059966/1369487942862504016) ([joining details here](https://modelcontextprotocol.io/community/communication)).
 
 Current key maintainers:
 - **Adam Jones** (Anthropic) [@domdomegg](https://github.com/domdomegg)  
 - **Tadas Antanavicius** (PulseMCP) [@tadasant](https://github.com/tadasant)
 - **Toby Padilla** (GitHub) [@toby](https://github.com/toby)
+- **Radoslav (Rado) Dimitrov** (Stacklok) [@rdimitrov](https://github.com/rdimitrov)
 
 ## Contributing
 
@@ -32,7 +32,8 @@ Often (but not always) ideas flow through this pipeline:
 #### Pre-requisites
 
 - **Docker**
-- **Go 1.24.x** 
+- **Go 1.24.x**
+- **ko** - Container image builder for Go ([installation instructions](https://ko.build/install/))
 - **golangci-lint v2.4.0**
 
 #### Running the server
@@ -42,24 +43,13 @@ Often (but not always) ideas flow through this pipeline:
 make dev-compose
 ```
 
-This starts the registry at [`localhost:8080`](http://localhost:8080) with PostgreSQL and seed data. It can be configured with environment variables in [docker-compose.yml](./docker-compose.yml) - see [.env.example](./.env.example) for a reference.
+This starts the registry at [`localhost:8080`](http://localhost:8080) with PostgreSQL. The database uses ephemeral storage and is reset each time you restart the containers, ensuring a clean state for development and testing.
 
-<details>
-<summary>Alternative: Local setup without Docker</summary>
+**Note:** The registry uses [ko](https://ko.build) to build container images. The `make dev-compose` command automatically builds the registry image with ko and loads it into your local Docker daemon before starting the services.
 
-**Prerequisites:**
-- PostgreSQL running locally
-- Go 1.24.x installed
+By default, the registry seeds from the production API with a filtered subset of servers (to keep startup fast). This ensures your local environment mirrors production behavior and all seed data passes validation. For offline development you can seed from a file without validation with `MCP_REGISTRY_SEED_FROM=data/seed.json MCP_REGISTRY_ENABLE_REGISTRY_VALIDATION=false make dev-compose`.
 
-```bash
-# Build and run locally
-make build
-make dev-local
-```
-
-The service runs on [`localhost:8080`](http://localhost:8080) by default. This can be configured with environment variables in `.env` - see [.env.example](./.env.example) for a reference.
-
-</details>
+The setup can be configured with environment variables in [docker-compose.yml](./docker-compose.yml) - see [.env.example](./.env.example) for a reference.
 
 <details>
 <summary>Alternative: Running a pre-built Docker image</summary>
@@ -99,7 +89,7 @@ make publisher
 ./bin/mcp-publisher --help
 ```
 
-See [the publisher guide](./docs/guides/publishing/publish-server.md) for more details.
+See [the publisher guide](./docs/modelcontextprotocol-io/quickstart.mdx) for more details.
 
 #### Other commands
 
@@ -128,7 +118,7 @@ For Claude and other AI tools: Always prefer make targets over custom commands w
 │   ├── api/                 # HTTP handlers and routing
 │   ├── auth/                # Authentication (GitHub OAuth, JWT, namespace blocking)
 │   ├── config/              # Configuration management
-│   ├── database/            # Data persistence (PostgreSQL, in-memory)
+│   ├── database/            # Data persistence (PostgreSQL)
 │   ├── service/             # Business logic
 │   ├── telemetry/           # Metrics and monitoring
 │   └── validators/          # Input validation
@@ -153,6 +143,10 @@ Publishing supports multiple authentication methods:
 The registry validates namespace ownership when publishing. E.g. to publish...:
 - `io.github.domdomegg/my-cool-mcp` you must login to GitHub as `domdomegg`, or be in a GitHub Action on domdomegg's repos
 - `me.adamjones/my-cool-mcp` you must prove ownership of `adamjones.me` via DNS or HTTP challenge
+
+## Community Projects
+
+Check out [community projects](docs/community-projects.md) to explore notable registry-related work created by the community.
 
 ## More documentation
 
