@@ -1,6 +1,6 @@
 {
   "name": "@basis-protocol/mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "MCP server for Basis Protocol — verifiable risk intelligence for stablecoins and wallet risk profiles",
   "keywords": ["mcp", "risk", "stablecoin", "defi", "wallet", "basis-protocol"],
   "license": "MIT",
@@ -12,7 +12,7 @@
     "basis-mcp": "./build/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && chmod +x build/index.js",
     "dev": "node --enable-source-maps ./build/index.js",
     "start": "node --enable-source-maps ./build/index.js",
     "start:http": "node --enable-source-maps ./build/index.js --http",

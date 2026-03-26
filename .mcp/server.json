@@ -7,7 +7,7 @@
     "homepage": "https://basis-deploy-guide.replit.app"
   },
   "version_detail": {
-    "version": "1.0.0",
+    "version": "1.0.2",
     "release_date": "2026-03-26",
     "is_latest": true
   },
@@ -15,7 +15,7 @@
     {
       "registry_name": "npm",
       "name": "@basis-protocol/mcp-server",
-      "version": "1.0.0"
+      "version": "1.0.2"
     }
   ],
   "remotes": [
