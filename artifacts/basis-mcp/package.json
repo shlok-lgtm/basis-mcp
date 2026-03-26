@@ -1,6 +1,7 @@
 {
   "name": "@basis-protocol/mcp-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
+  "mcpName": "io.github.shlok-lgtm/basis-mcp",
   "description": "MCP server for Basis Protocol — verifiable risk intelligence for stablecoins and wallet risk profiles",
   "keywords": ["mcp", "risk", "stablecoin", "defi", "wallet", "basis-protocol"],
   "license": "MIT",
