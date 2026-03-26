@@ -19,6 +19,7 @@ npx @basis-protocol/mcp-server
 | `get_stablecoin_scores` | All scored stablecoins with SII scores and grades |
 | `get_stablecoin_detail` | Full score breakdown for a specific stablecoin |
 | `get_wallet_risk` | Risk profile for any Ethereum wallet |
+| `get_wallet_holdings` | Per-asset holdings breakdown with SII scores |
 | `get_riskiest_wallets` | Wallets with most at-risk capital |
 | `get_scoring_backlog` | Unscored assets ranked by capital exposure |
 | `check_transaction_risk` | Composite risk assessment: asset + sender + receiver |
