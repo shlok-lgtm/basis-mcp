@@ -1,4 +1,4 @@
-export declare const BASE_URL = "https://basis-demo.replit.app";
+export declare const BASE_URL = "https://basis-deploy-guide.replit.app";
 export declare const GRADE_ORDER: Record<string, number>;
 export declare const API_TIMEOUT_MS = 10000;
 export type GradeString = "A+" | "A" | "A-" | "B+" | "B" | "B-" | "C+" | "C" | "C-" | "D" | "F";
