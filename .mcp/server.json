@@ -4,7 +4,7 @@
   "repository": {
     "url": "https://github.com/shlok-lgtm/basis-mcp",
     "source": "https://github.com/shlok-lgtm/basis-mcp",
-    "homepage": "https://basis-deploy-guide.replit.app"
+    "homepage": "https://basisprotocol.xyz"
   },
   "version_detail": {
     "version": "1.0.2",
@@ -21,7 +21,7 @@
   "remotes": [
     {
       "transport_type": "streamable-http",
-      "url": "https://basis-deploy-guide.replit.app/mcp"
+      "url": "https://basisprotocol.xyz/mcp"
     }
   ]
 }

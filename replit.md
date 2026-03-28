@@ -97,7 +97,7 @@ MCP (Model Context Protocol) server for Basis Protocol — decision integrity in
 
 - **Entry:** `src/index.ts` — detects `--http` flag to choose transport
 - **Config:** `src/config.ts` — types, grade ordering, thresholds
-- **API client:** `src/api.ts` — fetches Basis Protocol API at `https://basis-demo.replit.app`
+- **API client:** `src/api.ts` — fetches Basis Protocol API at `https://basisprotocol.xyz`
 - **Tools:** `src/tools.ts` — 8 registered MCP tools
 - **8 Tools:** `get_stablecoin_scores`, `get_stablecoin_detail`, `get_wallet_risk`, `get_wallet_holdings`, `get_riskiest_wallets`, `get_scoring_backlog`, `check_transaction_risk`, `get_methodology`
 - **Transports:** stdio (Claude Desktop, Cursor) and Streamable HTTP (cloud agents)

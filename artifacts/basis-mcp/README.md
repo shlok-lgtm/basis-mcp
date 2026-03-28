@@ -57,6 +57,6 @@ npx @basis-protocol/mcp-server --http
 
 ## Links
 
-- [Live Dashboard](https://basis-deploy-guide.replit.app)
+- [Live Dashboard](https://basisprotocol.xyz)
 - [GitHub](https://github.com/shlok-lgtm/basis-mcp)
 - [Basis Protocol](https://basisprotocol.xyz)

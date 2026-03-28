@@ -1,4 +1,4 @@
-export const BASE_URL = "https://basis-deploy-guide.replit.app";
+export const BASE_URL = "https://basisprotocol.xyz";
 export const GRADE_ORDER = {
     "A+": 11,
     "A": 10,
