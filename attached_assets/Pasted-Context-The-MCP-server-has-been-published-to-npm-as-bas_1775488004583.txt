@@ -1,0 +1,47 @@
+Context
+The MCP server has been published to npm as @basis-protocol/mcp-server (v1.0.4) and is on the official MCP registry. The repo was transferred from github.com/shlok-lgtm/basis-mcp to github.com/basis-protocol/basis-mcp. Multiple files still reference the old shlok-lgtm path and need updating.
+The MCP registry name format uses the GitHub org, so io.github.shlok-lgtm/basis-mcp should become io.github.basis-protocol/basis-mcp.
+Task 1: Update all shlok-lgtm references
+The following files need shlok-lgtm replaced with basis-protocol:
+artifacts/basis-mcp/package.json:
+
+mcpName: io.github.shlok-lgtm/basis-mcp → io.github.basis-protocol/basis-mcp
+repository: https://github.com/shlok-lgtm/basis-mcp → https://github.com/basis-protocol/basis-mcp
+
+artifacts/basis-mcp/README.md:
+
+MCP name comment: io.github.shlok-lgtm/basis-mcp → io.github.basis-protocol/basis-mcp
+GitHub link: https://github.com/shlok-lgtm/basis-mcp → https://github.com/basis-protocol/basis-mcp
+
+artifacts/basis-mcp/.mcp/server.json:
+
+name: io.github.shlok-lgtm/basis-mcp → io.github.basis-protocol/basis-mcp
+repository.url: https://github.com/shlok-lgtm/basis-mcp → https://github.com/basis-protocol/basis-mcp
+
+server.json (repo root):
+
+name: io.github.shlok-lgtm/basis-mcp → io.github.basis-protocol/basis-mcp
+repository.url: https://github.com/shlok-lgtm/basis-mcp → https://github.com/basis-protocol/basis-mcp
+
+.mcp/server.json (repo root):
+
+name: io.github.shlok-lgtm/basis-mcp → io.github.basis-protocol/basis-mcp
+repository.url: https://github.com/shlok-lgtm/basis-mcp → https://github.com/basis-protocol/basis-mcp
+repository.source: https://github.com/shlok-lgtm/basis-mcp → https://github.com/basis-protocol/basis-mcp
+
+Do NOT touch attached_assets/ files — those are historical specs, not live code.
+Task 2: Bump version to 1.0.5
+In artifacts/basis-mcp/package.json, bump version from 1.0.4 to 1.0.5.
+Update both server.json files and .mcp/server.json to version 1.0.5 as well — keep all version references consistent.
+Task 3: Rebuild and publish
+bashcd artifacts/basis-mcp
+npm run build
+npm publish --access public
+Task 4: Commit and push
+Commit message: fix: migrate org references shlok-lgtm → basis-protocol, bump 1.0.5
+Push to main.
+Verification checklist
+
+ grep -rn "shlok-lgtm" . --include="*.json" --include="*.md" --include="*.ts" | grep -v attached_assets | grep -v node_modules | grep -v .git returns nothing
+ npm view @basis-protocol/mcp-server version returns 1.0.5
+ All three server.json files show io.github.basis-protocol/basis-mcp
