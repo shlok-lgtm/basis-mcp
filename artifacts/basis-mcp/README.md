@@ -1,6 +1,6 @@
 # @basis-protocol/mcp-server
 
-<!-- mcp-name: io.github.shlok-lgtm/basis-mcp -->
+<!-- mcp-name: io.github.basis-protocol/basis-mcp -->
 
 MCP server for Basis Protocol — verifiable risk intelligence for on-chain finance.
 
@@ -58,5 +58,5 @@ npx @basis-protocol/mcp-server --http
 ## Links
 
 - [Live Dashboard](https://basisprotocol.xyz)
-- [GitHub](https://github.com/shlok-lgtm/basis-mcp)
+- [GitHub](https://github.com/basis-protocol/basis-mcp)
 - [Basis Protocol](https://basisprotocol.xyz)
