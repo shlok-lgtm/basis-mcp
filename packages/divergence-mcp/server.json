@@ -19,5 +19,10 @@
     "url": "https://github.com/basis-protocol/basis-mcp",
     "source": "github"
   },
-  "tools": []
+  "tools": [
+    { "name": "latest_pulse", "description": "Latest daily risk-surface snapshot." },
+    { "name": "divergence_stream", "description": "Top-20 discovery signals from the last 7 days." },
+    { "name": "coherence_drops_latest", "description": "Latest cross-domain coherence report." },
+    { "name": "divergence_signals", "description": "Combined asset-quality and wallet-concentration divergences." }
+  ]
 }
