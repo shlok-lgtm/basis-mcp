@@ -19,5 +19,9 @@
     "url": "https://github.com/basis-protocol/basis-mcp",
     "source": "github"
   },
-  "tools": []
+  "tools": [
+    { "name": "cqi_compose", "description": "Compute the Collateral Quality Index for a stablecoin in a protocol." },
+    { "name": "cqi_matrix", "description": "Full CQI matrix across all scored stablecoin × protocol combinations." },
+    { "name": "cqi_contagion_traversal", "description": "Pool-wallet contagion analysis for a stablecoin in a protocol." }
+  ]
 }

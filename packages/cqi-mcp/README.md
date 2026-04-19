@@ -2,14 +2,8 @@
 
 <!-- mcp-name: io.github.basis-protocol/cqi-mcp -->
 
-**Basis Protocol — CQI MCP.** Composition: CQI pair lookups, portfolio and
-collateral stress, report generation (Basel SCO60, MiCA, GENIUS), RQS,
-contagion traversal.
-
-> **Scaffold release.** This package publishes the `@basis/cqi-mcp`
-> namespace with no tools registered yet. The server responds to
-> `tools/list` with an empty array while the composition feature set is
-> being built out. See [`mcp_split_plan.md`](../../mcp_split_plan.md).
+**Basis Protocol — CQI MCP.** Composition Quality Index reads:
+asset-in-protocol CQI, full matrix, and pool-wallet contagion traversal.
 
 ## Install
 
@@ -19,15 +13,22 @@ npx @basis/cqi-mcp
 
 ## Tools
 
-_None yet._ Planned:
+| Tool | Input | Output summary |
+|------|-------|----------------|
+| `cqi_compose` | `asset: string`, `protocol: string` | CQI object for the stablecoin-in-protocol pair. |
+| `cqi_matrix` | — | CQI matrix across all scored stablecoin × protocol combinations. |
+| `cqi_contagion_traversal` | `protocol_slug`, `stablecoin_symbol`, `depth?: 1–3` | CQI object with nested `.contagion` summary. Returns `contagion.status = "no_pool_wallets"` when pool-wallet data has not yet been collected for the pair. |
 
-| Tool | Purpose |
-|------|---------|
-| `get_cqi_pair` | Collateral-quality pair lookup. |
-| `stress_portfolio` | Apply stress scenarios to a portfolio. |
-| `generate_report` | Basel SCO60 / MiCA / GENIUS report generation. |
-| `compute_rqs` | Residual-quality score. |
-| `traverse_contagion` | Contagion-graph traversal from an entity. |
+## Notes
+
+- `cqi_compose` wraps `GET /api/compose/cqi?asset=&protocol=` — it's an
+  asset-in-protocol composition, not a coin-pair lookup. Names like
+  `cqi_pair_lookup` would misrepresent the endpoint; `cqi_compose`
+  matches reality.
+- `cqi_contagion_traversal`: the server returns a success (200) response
+  with `contagion.status = "no_pool_wallets"` when the collector has not
+  yet populated the `protocol_pool_wallets` table for the requested
+  pair. The tool surfaces that as a valid result, not an error.
 
 ## Claude Desktop
 
