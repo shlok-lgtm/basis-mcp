@@ -19,5 +19,8 @@
     "url": "https://github.com/basis-protocol/basis-mcp",
     "source": "github"
   },
-  "tools": []
+  "tools": [
+    { "name": "evidence_list_issuers", "description": "List stablecoin issuers tracked in the Basis Witness evidence archive (CDA)." },
+    { "name": "evidence_latest_for_issuer", "description": "Latest CDA extraction for a given issuer symbol." }
+  ]
 }
