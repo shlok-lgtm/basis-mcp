@@ -63,6 +63,14 @@ teams who will fill these in):
   stress tests, report generation (Basel SCO60, MiCA, GENIUS), RQS,
   contagion traversal.
 
+  **Status 2026-04-19 (second attempt):** 0 tools. Attempted wrap of
+  `/api/compose/cqi`, `/api/compose/cqi/matrix`, and
+  `/api/cqi/{slug}/{symbol}/contagion`. Halted — the reference paste
+  (`/tmp/endpoint_shapes.md`) was not present on this machine, and the
+  brief's own input contracts for pair-lookup and matrix are hedged
+  ("or whatever the endpoint takes"). See `blockers.md` §8. Contagion
+  endpoint's `no_pool_wallets` edge case recorded there for the resume.
+
 - **`witness-mcp` — Evidence**: evidence lookups, attestation hashes,
   TLSNotary provenance proofs, CDA snapshots.
 

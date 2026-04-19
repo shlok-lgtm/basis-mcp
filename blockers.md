@@ -185,3 +185,62 @@ in the shared client.
 `packages/divergence-mcp` remains in its scaffold state — builds
 cleanly, responds to `tools/list` with `{ tools: [] }`, namespace
 reserved.
+
+## Blocker 8 — CQI tool-wrap session (attempt 2): referenced file missing
+
+Second attempt at `Wrap cqi-mcp tools`. This brief points at a file
+instead of inlining the shapes:
+
+```
+Reference endpoint shapes (verified from basis-hub):
+[PASTE the /api/compose/cqi, /api/compose/cqi/matrix, and
+ /api/cqi/{slug}/{symbol}/contagion sections from /tmp/endpoint_shapes.md]
+```
+
+`/tmp/endpoint_shapes.md` does not exist on this machine:
+
+```
+$ ls -la /tmp/endpoint_shapes.md
+ls: cannot access '/tmp/endpoint_shapes.md': No such file or directory
+$ find /tmp -maxdepth 2 -name '*.md'
+(no results)
+```
+
+The brief text itself carries three concrete facts the first attempt
+lacked, all preserved for the resumed session:
+
+1. **Paths are named, not implied.** `/api/compose/cqi`,
+   `/api/compose/cqi/matrix`, `/api/cqi/{slug}/{symbol}/contagion`.
+   `/api/cqi` (first attempt's guess) is superseded — do not wire it.
+2. **Contagion edge case.** The contagion endpoint returns
+   `{ "status": "no_pool_wallets" }` when `protocol_pool_wallets` is
+   empty for the pair. This must surface as a valid (non-error)
+   result. The tool description must note: "Returns empty when pool
+   wallet collector has not yet populated data for the requested pair."
+3. **Tool count target.** Three tools, not two — `cqi_pair_lookup`,
+   `cqi_matrix`, `cqi_contagion_traversal`.
+
+Still missing (blocks implementation):
+
+- Query-param contract for `/api/compose/cqi`. Brief itself hedges:
+  "{ coin_a, coin_b } (or whatever the endpoint takes — confirm from
+  shapes above)". Guessing `coin_a`/`coin_b` vs `symbol_a`/`symbol_b`
+  vs `a`/`b` vs `pair` would violate the guardrail.
+- Query-param contract for `/api/compose/cqi/matrix`. Brief: "{ } or
+  filter params if the endpoint supports them". Same ambiguity.
+- Full response shapes for the happy path on all three endpoints. The
+  passthrough output style accepts any JSON, but without the shape I
+  cannot sanity-check the fields any downstream tool ergonomics rely
+  on (e.g. an `overall_score` field vs `score` vs `cqi`).
+
+**Resolution options** (any one works):
+
+a. Paste the three endpoint sections inline in the next message.
+b. Create `/tmp/endpoint_shapes.md` in the workspace before handing
+   the next prompt over, and reference that exact path.
+c. Drop a spec file into this repo (e.g. extend
+   `lib/api-spec/openapi.yaml` with the CQI routes) — then the
+   guardrail-safe path is to read the spec rather than rely on pasted
+   text.
+
+`packages/cqi-mcp` remains in its scaffold state.
