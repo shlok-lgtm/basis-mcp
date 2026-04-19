@@ -2,6 +2,22 @@
 
 <!-- mcp-name: io.github.basis-protocol/basis-mcp -->
 
+> ### ⚠️ DEPRECATED — use the split servers instead
+>
+> This monolithic server is superseded by four scoped servers, each aligned
+> with a capability category from `basis-hub`'s agent-card.json:
+>
+> | New server | Scope | Package |
+> |------------|-------|---------|
+> | `@basis/oracle-mcp` | Score reads (SII, PSI, RPI, accruing indices) | [`packages/oracle-mcp`](../../packages/oracle-mcp) |
+> | `@basis/cqi-mcp` | Composition (CQI pairs, stress, Basel/MiCA/GENIUS reports, RQS, contagion) | [`packages/cqi-mcp`](../../packages/cqi-mcp) |
+> | `@basis/witness-mcp` | Evidence (attestations, TLSNotary, CDA snapshots) | [`packages/witness-mcp`](../../packages/witness-mcp) |
+> | `@basis/divergence-mcp` | Live signals (pulse, divergence, oracle stress, coherence, discovery) | [`packages/divergence-mcp`](../../packages/divergence-mcp) |
+>
+> All 8 legacy tools now live in `@basis/oracle-mcp`. This package remains
+> published and functional — no action required for existing consumers —
+> but **new integrations should install the scoped packages** instead.
+
 MCP server for Basis Protocol — verifiable risk intelligence for on-chain finance.
 
 Query stablecoin integrity scores, wallet risk profiles, transaction risk assessment, and scoring methodology across 44,000+ wallets tracking $67B+ in stablecoin value.

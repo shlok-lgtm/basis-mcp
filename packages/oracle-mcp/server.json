@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.basis-protocol/oracle-mcp",
+  "version": "0.1.0",
+  "description": "Basis Protocol Oracle — score reads for SII, PSI, RPI, and accruing indices.",
+  "title": "Basis Protocol — Oracle",
+  "websiteUrl": "https://basisprotocol.xyz",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@basis/oracle-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "packageArguments": [],
+      "environmentVariables": []
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/basis-protocol/basis-mcp",
+    "source": "github"
+  },
+  "tools": [
+    { "name": "get_stablecoin_scores", "description": "Current SII scores for all scored stablecoins." },
+    { "name": "get_stablecoin_detail", "description": "Full score breakdown for a specific stablecoin." },
+    { "name": "get_wallet_risk", "description": "Risk profile for an Ethereum wallet." },
+    { "name": "get_wallet_holdings", "description": "Per-asset holdings breakdown with SII scores." },
+    { "name": "get_riskiest_wallets", "description": "Wallets with the most capital at risk." },
+    { "name": "get_scoring_backlog", "description": "Unscored assets ranked by capital exposure." },
+    { "name": "check_transaction_risk", "description": "Composite risk assessment for a transaction." },
+    { "name": "get_methodology", "description": "Current SII formula, weights, and version." }
+  ]
+}

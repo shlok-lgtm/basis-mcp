@@ -1,0 +1,33 @@
+{
+  "name": "@basis/mcp-shared",
+  "version": "0.1.0",
+  "description": "Shared HTTP client, types, and helpers for Basis Protocol MCP servers.",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    }
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "express": "^5",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.2"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.basis-protocol/divergence-mcp",
+  "version": "0.1.0",
+  "description": "Basis Protocol Divergence — live signals: pulse, divergences, oracle stress, coherence.",
+  "title": "Basis Protocol — Divergence",
+  "websiteUrl": "https://basisprotocol.xyz",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@basis/divergence-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "packageArguments": [],
+      "environmentVariables": []
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/basis-protocol/basis-mcp",
+    "source": "github"
+  },
+  "tools": []
+}
