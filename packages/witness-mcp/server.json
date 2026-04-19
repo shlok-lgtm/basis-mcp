@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.basis-protocol/witness-mcp",
+  "version": "0.1.0",
+  "description": "Basis Protocol Witness — evidence: attestations, TLSNotary proofs, CDA snapshots.",
+  "title": "Basis Protocol — Witness",
+  "websiteUrl": "https://basisprotocol.xyz",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@basis/witness-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "packageArguments": [],
+      "environmentVariables": []
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/basis-protocol/basis-mcp",
+    "source": "github"
+  },
+  "tools": [
+    { "name": "evidence_list_issuers", "description": "List stablecoin issuers tracked in the Basis Witness evidence archive (CDA)." },
+    { "name": "evidence_latest_for_issuer", "description": "Latest CDA extraction for a given issuer symbol." }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.basis-protocol/cqi-mcp",
+  "version": "0.1.0",
+  "description": "Basis Protocol CQI — composition: pair lookups, stress, reports, RQS, contagion.",
+  "title": "Basis Protocol — CQI",
+  "websiteUrl": "https://basisprotocol.xyz",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@basis/cqi-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "packageArguments": [],
+      "environmentVariables": []
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/basis-protocol/basis-mcp",
+    "source": "github"
+  },
+  "tools": [
+    { "name": "cqi_compose", "description": "Compute the Collateral Quality Index for a stablecoin in a protocol." },
+    { "name": "cqi_matrix", "description": "Full CQI matrix across all scored stablecoin × protocol combinations." },
+    { "name": "cqi_contagion_traversal", "description": "Pool-wallet contagion analysis for a stablecoin in a protocol." }
+  ]
+}

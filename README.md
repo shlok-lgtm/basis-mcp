@@ -1,3 +1,28 @@
+# Basis Protocol MCP — split servers
+
+> **2026-04-19:** The monolithic `@basis-protocol/mcp-server`
+> (registry name `io.github.basis-protocol/basis-mcp`) is **deprecated**
+> but still published and functional. New integrations should install the
+> four scoped servers below. All 8 legacy tools now ship in
+> `@basis/oracle-mcp`; the other three reserve their namespaces and
+> publish as scaffolds while their feature sets ship.
+>
+> | Package | Scope | Source |
+> |---------|-------|--------|
+> | [`@basis/oracle-mcp`](packages/oracle-mcp) | Score reads — SII, PSI, RPI, accruing indices | `packages/oracle-mcp` |
+> | [`@basis/cqi-mcp`](packages/cqi-mcp) | Composition — CQI pairs, stress, Basel SCO60 / MiCA / GENIUS reports, RQS, contagion | `packages/cqi-mcp` |
+> | [`@basis/witness-mcp`](packages/witness-mcp) | Evidence — attestations, TLSNotary proofs, CDA snapshots | `packages/witness-mcp` |
+> | [`@basis/divergence-mcp`](packages/divergence-mcp) | Live signals — pulse, divergence, oracle stress, coherence drops, discovery | `packages/divergence-mcp` |
+>
+> Shared HTTP client, types, helpers, and server runner live in
+> [`@basis/mcp-shared`](packages/shared). Legacy monolith lives at
+> [`artifacts/basis-mcp`](artifacts/basis-mcp). See
+> [`mcp_split_plan.md`](mcp_split_plan.md),
+> [`mcp_registry_entries.md`](mcp_registry_entries.md), and
+> [`blockers.md`](blockers.md) for the full split record.
+
+---
+
 # MCP Registry
 
 The MCP registry provides MCP clients with a list of MCP servers, like an app store for MCP servers.

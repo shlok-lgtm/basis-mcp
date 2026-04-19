@@ -1,0 +1,42 @@
+{
+  "name": "@basis/oracle-mcp",
+  "version": "0.1.0",
+  "mcpName": "io.github.basis-protocol/oracle-mcp",
+  "description": "Basis Protocol Oracle MCP — score reads for SII, PSI, RPI, and the six accruing indices.",
+  "keywords": [
+    "mcp",
+    "basis-protocol",
+    "oracle",
+    "sii",
+    "stablecoin",
+    "risk"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/basis-protocol/basis-mcp",
+  "files": [
+    "build"
+  ],
+  "private": false,
+  "type": "module",
+  "bin": {
+    "basis-oracle-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "dev": "node --enable-source-maps ./build/index.js",
+    "start": "node --enable-source-maps ./build/index.js",
+    "start:http": "node --enable-source-maps ./build/index.js --http",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@basis/mcp-shared": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "express": "^5",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.2"
+  }
+}
